@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+use crate::{self as ink_core, storage::Flush};
 use derive_more::From;
 use ink_prelude::{
     vec,
@@ -70,7 +71,7 @@ impl Selector {
 /// # Note
 ///
 /// The first four bytes are the function selector and the rest are SCALE encoded inputs.
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, Flush)]
 pub struct CallData {
     /// Already encoded function selector and inputs.
     ///
